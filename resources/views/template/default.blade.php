@@ -8,10 +8,11 @@
     <title>Device E-Shop: @yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/starter-template.css')}}" rel="stylesheet">
+    <script src="{{asset('js/jQuery.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

@@ -12,4 +12,5 @@
                     @include('card', compact('product'))
                 @endforeach
             </div>
+
 @endsection

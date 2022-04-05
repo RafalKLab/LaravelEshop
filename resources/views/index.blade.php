@@ -7,4 +7,5 @@
                     @include('card', compact('product'))
                 @endforeach
             </div>
+            {{$products->links()}}
 @endsection

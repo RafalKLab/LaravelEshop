@@ -23,16 +23,19 @@
                             <a href="{{route('categories.edit', $category)}}" class="btn btn-warning" type="button">Edit</a>
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger" value="Delete">
+                                <input type="submit" class="btn btn-danger show_confirm" value="Delete" onclick="mes()">
                             </form>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+                            <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
                         </div>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        {{$categories->links()}}
         <hr>
-        <a href="{{route('categories.create')}}" class="btn btn-success" type="button">Add new category</a>
+        <a href="{{route('categories.create')}}" class="btn btn-success show_confirm" type="button">Add new category</a>
     </div>
 @endsection
 
