@@ -2,7 +2,13 @@
 @section('title', 'Orders')
 @section('content')
     <div class="col-md-12">
-        <h1>Orders</h1>
+        @if(count($orders))
+            @if($orders->first()->status == 1)
+                <h1>Pending orders: <small>({{count($orders)}})</small></h1>
+            @else
+                <h1>Completed orders: <small>({{count($orders)}})</small></h1>
+            @endif
+        @endif
         <table class="table">
             <tbody>
             <tr>
@@ -22,7 +28,7 @@
                     <td>{{$order->getFullPrice()}} Eur.</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a type="button" class="btn btn-success" href="">View</a>
+                            <a type="button" class="btn btn-success" href="{{route('adminShowOrder', [$order->id])}}">View</a>
                         </div>
                     </td>
                 </tr>

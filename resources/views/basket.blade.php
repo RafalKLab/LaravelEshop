@@ -2,7 +2,6 @@
 @section('title', 'Shopping Cart')
 @section('content')
             <h1>Basket</h1>
-            <p>Your order</p>
             <div class="panel">
             <table class="table table-striped">
                 <thed>

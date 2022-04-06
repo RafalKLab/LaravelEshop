@@ -10,14 +10,13 @@ class BasketController extends Controller
 {
     public function basket(){
         $orderId = session('orderId');
-        if(!is_null($orderId)){
-            $order = Order::findOrFail($orderId);
+        if(is_null($orderId)){
+            $order = Order::create();
+            session(['orderId' => $order->id]);
+        }else{
+            $order = Order::find($orderId);
         }
         return view('basket', compact('order'));
-    }
-
-    public function basketOrder(){
-        return view('basket');
     }
 
     public function basketAdd($productId){
@@ -74,14 +73,18 @@ class BasketController extends Controller
         if(is_null($orderId)){
             return redirect()->route('home');
         }
+        $this->validate($request, [
+            'name' => 'required|max:30|alpha_spaces',
+            'phone' => 'required|numeric',
+        ]);
         $order = Order::find($orderId);
         $success = $order->saveOrder($request->name, $request->phone);
         if($success){
-            session()->flash('success', 'Your order have been taken');
+            session()->flash('success', 'Your order have been taken. Orderd id:' . $orderId);
             $order = Order::create();
             session(['orderId' => $order->id]);
         }else{
-            session()->flash('warning', 'Something went wrong');
+            session()->flash('warning', 'Server-side mistake');
         }
 
         return redirect()->route('home');

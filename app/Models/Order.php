@@ -33,4 +33,15 @@ class Order extends Model
             return false;
         }
     }
+
+    public function complete(){
+        if($this->status == 1){
+            $this->status = 2;
+            $this->save();
+            session()->forget('orderId');
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

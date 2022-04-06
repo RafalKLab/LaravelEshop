@@ -8,13 +8,11 @@
     <title>Admin: @yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <script src="/js/bootstrap.js"></script>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/starter-template.css')}}" rel="stylesheet">
-    <script src="{{asset('js/jQuery.js')}}"></script>
-    <script src="{{asset('js/app.js')}}"></script>
+    <link href="{{asset('css/starter-template.css')}}" rel="stylesheet" media="screen">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,11 +25,20 @@
                 <li ><a href="{{route('categories.index')}}">Categories</a></li>
                 <li ><a href="{{route('products.index')}}">Products</a></li>
                 <li class="disabled"><a href="">Manufacturers</a></li>
-                <li><a href="{{route('adminOrders')}}">Orders</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Orders
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('adminOrders')}}">Pending</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('completedOrders')}}">Completed</a>
+                    </div>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{route('home')}}">Home page</a></li>
-                    <li><a href="{{route('logout')}}">Logout</a></li>
+                  <li><a href="{{route('home')}}">Home page</a></li>
+                  <li><a href="{{route('logout')}}">Logout</a></li>
             </ul>
         </div>
     </div>

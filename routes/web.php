@@ -20,6 +20,11 @@ Route::group([
 ], function(){
     Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'adminHome'])->name('adminHome');
     Route::get('/orders', [App\Http\Controllers\Admin\OrdersController::class, 'index'])->name('adminOrders');
+    Route::get('/orders/completed', [App\Http\Controllers\Admin\OrdersController::class, 'completedOrders'])->name('completedOrders');
+    Route::get('/orders/show/{id}', [App\Http\Controllers\Admin\OrdersController::class, 'showOrder'])->name('adminShowOrder');
+    Route::post('/orders/delete/{id}', [App\Http\Controllers\Admin\OrdersController::class, 'deleteOrder'])->name('adminDeleteOrder');
+    Route::get('/orders/complete/{id}', [App\Http\Controllers\Admin\OrdersController::class, 'completeOrder'])->name('adminCompleteOrder');
+
     Route::resource('categories',App\Http\Controllers\Admin\CategoriesController::class);
     Route::resource('products',App\Http\Controllers\Admin\ProductsController::class);
 });
@@ -34,7 +39,6 @@ Route::get('/logout', [App\Http\Controllers\AuthController::class, 'getLogout'])
 //basket
 Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('basket');
 Route::get('/basket/place', [App\Http\Controllers\BasketController::class, 'basketPlace'])->name('basketPlace');
-Route::get('/basket/order', [App\Http\Controllers\BasketController::class, 'basketOrder'])->name('basketOrder');
 Route::post('/basket/confirm', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basketConfirm');
 Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basketAdd');
 Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'basketRemove'])->name('basketRemove');

@@ -13,15 +13,24 @@
                                 <label for="name" class="control-label col-lg-offset-3 col-lg-2">Name</label>
                                 <div class="col-lg-4">
                                     <input type="text" name="name" id="name" value="" class="form-control">
+                                    @if($errors->has('name'))
+                                        <span class="text-danger">
+                                     {{$errors->first('name')}}
+                                </span>
+                                    @endif
                                 </div>
                             </div>
-                        </div>
                         <br>
                         <br>
                         <div class="form-group">
                             <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Phone</label>
                             <div class="col-lg-4">
                                 <input type="text" name="phone" id="phone" value="" class="form-control">
+                                @if($errors->has('phone'))
+                                    <span class="text-danger">
+                                     {{$errors->first('phone')}}
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -30,4 +39,5 @@
                     <br><input type="submit" class="btn btn-success" value="Confirm order">
                 </form>
             </div>
+        </div>
 @endsection
