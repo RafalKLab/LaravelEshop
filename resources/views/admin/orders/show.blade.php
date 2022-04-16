@@ -2,10 +2,10 @@
 @section('title', 'Order')
 @section('content')
     <div class="col-md-12">
-        <h3>Order: {{$order->id}}</h3>
-        <h3>Customer name: {{$order->name}}</h3>
-        <h3>Customer contact phone: {{$order->phone}}</h3>
-        <p>Your order</p>
+                <h4>Order: {{$order->id}}</h4>
+                <h4>Customer name: {{$order->name}}</h4>
+                <h4>Customer contact phone: {{$order->phone}}</h4>
+                <h4>Customer email address: {{$order->email}}</h4>
         <div class="panel">
             <table class="table table-striped">
                 <thed>

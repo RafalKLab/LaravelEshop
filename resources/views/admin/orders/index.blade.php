@@ -15,6 +15,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Phone</th>
+                <th>Email</th>
                 <th>Date:</th>
                 <th>Total price</th>
                 <th>Actions</th>
@@ -24,6 +25,7 @@
                     <td>{{$order->id}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{$order->phone}}</td>
+                    <td>{{$order->email}}</td>
                     <td>{{$order->created_at->format('H:i d/m/y')}}</td>
                     <td>{{$order->getFullPrice()}} Eur.</td>
                     <td>

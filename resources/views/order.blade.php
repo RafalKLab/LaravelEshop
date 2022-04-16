@@ -7,7 +7,7 @@
                 <p>Total price: <b>{{$order->getFullPrice()}} Eur</b></p>
                 <form action="{{route('basketConfirm')}}" method="POST">
                     <div>
-                        <p>Write your name and phone number</p>
+                        <p>Write your name, email and phone number</p>
                         <div class="container">
                             <div class="form-group">
                                 <label for="name" class="control-label col-lg-offset-3 col-lg-2">Name</label>
@@ -15,9 +15,20 @@
                                     <input type="text" name="name" id="name" value="" class="form-control">
                                     @if($errors->has('name'))
                                         <span class="text-danger">
-                                     {{$errors->first('name')}}
-                                </span>
+                                          {{$errors->first('name')}}
+                                         </span>
                                     @endif
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <label for="email" class="control-label col-lg-offset-3 col-lg-2">Email</label>
+                                <div class="col-lg-4">
+                                    <input type="email" name="email" id="email" value="" class="form-control">
+                                    <span class="text-danger">
+                                          {{$errors->first('email')}}
+                                     </span>
                                 </div>
                             </div>
                         <br>

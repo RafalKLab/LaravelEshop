@@ -65,6 +65,10 @@ class BasketController extends Controller
             return redirect()->route('home');
         }
         $order = Order::find($orderId);
+        if(!count($order->products)){
+            session()->flash('warning', 'Your cart is empty!');
+            return redirect()->route('basket');
+        }
         return view('order', compact('order'));
     }
 
@@ -75,10 +79,11 @@ class BasketController extends Controller
         }
         $this->validate($request, [
             'name' => 'required|max:30|alpha_spaces',
-            'phone' => 'required|numeric',
+            'phone' => 'required|numeric|digits_between:8,11',
+            'email' => 'required|email',
         ]);
         $order = Order::find($orderId);
-        $success = $order->saveOrder($request->name, $request->phone);
+        $success = $order->saveOrder($request->name, $request->phone, $request->email);
         if($success){
             session()->flash('success', 'Your order have been taken. Orderd id:' . $orderId);
             $order = Order::create();
