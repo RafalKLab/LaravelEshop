@@ -34,6 +34,10 @@
                 <td>{{$product->category->name}}</td>
             </tr>
             <tr>
+                <td>Manufacturer</td>
+                <td>{{$product->manufacturer->name}}</td>
+            </tr>
+            <tr>
                 <td>Image</td>
                 <td><img src="{{ Storage::url($product->image) }}" alt="image" height="240px"></td>
             </tr>

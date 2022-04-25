@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductsFilterRequest;
 use App\Models\Category;
+use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class MainController extends Controller
 {
     public function index(ProductsFilterRequest $request){
         $categories = Category::get();
+        $manufacturers = Manufacturer::get();
         $productsQuery = Product::query();
         if($request->filled('price_from')){
             $productsQuery->where('price', '>=', $request->price_from);
@@ -22,9 +24,13 @@ class MainController extends Controller
             $productsQuery->where('category_id', '=', $request->filter_category);
         }
 
+        if($request->filled('filter_manufacturer')){
+            $productsQuery->where('manufacturer_id', '=', $request->filter_manufacturer);
+        }
+
         $products = $productsQuery->paginate(6)->withPath("?" . $request->getQueryString());
 
-        return view('index', compact('products', 'categories'));
+        return view('index', compact('products', 'categories', 'manufacturers'));
     }
     public function categories(){
         $categories = Category::get();

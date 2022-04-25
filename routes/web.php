@@ -27,6 +27,7 @@ Route::group([
 
     Route::resource('categories',App\Http\Controllers\Admin\CategoriesController::class);
     Route::resource('products',App\Http\Controllers\Admin\ProductsController::class);
+    Route::resource('manufacturers',App\Http\Controllers\Admin\ManufacturerController::class);
 });
 
 //auth

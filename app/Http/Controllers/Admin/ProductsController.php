@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return view('admin.products.form', compact('categories'));
+        $manufacturers = Manufacturer::get();
+        return view('admin.products.form', compact('categories', 'manufacturers'));
     }
 
     /**
@@ -74,7 +76,8 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::get();
-        return view('admin.products.form', compact('product', 'categories'));
+        $manufacturers = Manufacturer::get();
+        return view('admin.products.form', compact('product', 'categories', 'manufacturers'));
     }
 
     /**

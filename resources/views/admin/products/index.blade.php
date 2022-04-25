@@ -8,6 +8,7 @@
             <tr>
                 <th>#</th>
                 <th>Category</th>
+                <th>Manufacturer</th>
                 <th>Name</th>
                 <th>Code</th>
                 <th>Action</th>
@@ -16,6 +17,7 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->category->name }}</td>
+                    <td>{{$product->manufacturer->name }}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->code}}</td>
                     <td>

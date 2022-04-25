@@ -60,6 +60,28 @@
                         </div>
                     </div>
                     <br>
+                    <div class="row">
+                        <label for="manufacturer_id" class="col-sm-2 col-form-label ">Manufacturer: </label>
+                        <div class="col-sm-6">
+                            <select name="manufacturer_id" id="manufacturer_id" class="form-control">
+                                @foreach($manufacturers as $manufacturer)
+                                    <option value="{{$manufacturer->id}}"
+                                            @isset($product)
+                                            @if($product->manufacturer_id == $manufacturer->id)
+                                            selected
+                                        @endif
+                                        @endisset
+                                    >{{$manufacturer->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('manufacturer_id'))
+                                <span class="text-danger">
+                            {{$errors->first('manufacturer_id')}}
+                        </span>
+                            @endif
+                        </div>
+                    </div>
+                    <br>
                 <div class="row">
                     <label for="code" class="col-sm-2 col-form-label ">Code: </label>
                     <div class="col-sm-6">

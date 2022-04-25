@@ -25,6 +25,16 @@
                         </select>
                         </label>
                     </div>
+                    <div class="col-sm-6 col-md-4">
+                        <label for="filter_category">Manufacturer filter
+                            <select class="form-select" aria-label="Select manufacturer" name="filter_manufacturer" id="filter_manufacturery">
+                                <option value="">All</option>
+                                @foreach($manufacturers as $manufacturer)
+                                    <option value="{{$manufacturer->id}}" {{request()->filter_manufacturer == $manufacturer->id ? "selected" : ''}}>{{$manufacturer->name}}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </div>
                     <div class="col-sm-6 col-md-2">
                         <button type="submit" class="btn btn-primary">Filter</button>
                         <a href="{{route('home')}}" class="btn btn-warning">Clear</a>
