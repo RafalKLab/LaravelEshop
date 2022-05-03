@@ -1,8 +1,12 @@
 @extends('template.default')
 @section('title', 'Home')
 @section('content')
-
             <h1>All products</h1>
+            <form method="GET" action="{{route('search')}}" class="form-inline my-2 my-lg-0 ml-2">
+                <input name="query" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <br>
             <form method="GET">
                 <div class="filters row">
                     <div class="col-sm-6 col-md-5">
@@ -41,7 +45,13 @@
                     </div>
                 </div>
             </form>
+
             <div class="row">
+                @if(!count($products))
+                    <div class="alert alert-info" role="alert">
+                        There is no products for such filters!
+                    </div>
+                @endif
                 @foreach($products as $product )
                     @include('card', compact('product'))
                 @endforeach

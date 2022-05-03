@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -23,13 +24,10 @@ class MainController extends Controller
         if($request->filled('filter_category')){
             $productsQuery->where('category_id', '=', $request->filter_category);
         }
-
         if($request->filled('filter_manufacturer')){
             $productsQuery->where('manufacturer_id', '=', $request->filter_manufacturer);
         }
-
         $products = $productsQuery->paginate(6)->withPath("?" . $request->getQueryString());
-
         return view('index', compact('products', 'categories', 'manufacturers'));
     }
     public function categories(){
@@ -44,4 +42,18 @@ class MainController extends Controller
         $product = Product::where('code', $name)->first();
         return view('product', compact('product'));
     }
+    public function search(Request $request){
+        $query = $request->input('query');
+        if(!$query){
+            return redirect()->route('home');
+        }
+        $products = Product::where(DB::raw("CONCAT (name, ' ', code)"),
+            'LIKE', "%{$query}%")
+            ->orWhere('name', 'LIKE', "%{$query}%" )
+            ->paginate(6);
+        $categories = Category::get();
+        $manufacturers = Manufacturer::get();
+        return view('index', compact('products', 'categories', 'manufacturers'));
+    }
+
 }

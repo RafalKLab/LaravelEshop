@@ -30,6 +30,9 @@ Route::group([
     Route::resource('manufacturers',App\Http\Controllers\Admin\ManufacturerController::class);
 });
 
+//search
+Route::get('/search', [App\Http\Controllers\MainController::class, 'search'])->name('search');
+
 //auth
 Route::get('/register', [App\Http\Controllers\AuthController::class, 'getRegister'])->middleware('guest')->name('register');
 Route::post('/register', [App\Http\Controllers\AuthController::class, 'postRegister'])->middleware('guest');

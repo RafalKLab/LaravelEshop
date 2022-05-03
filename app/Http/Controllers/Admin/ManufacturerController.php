@@ -38,7 +38,7 @@ class ManufacturerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-           'name' => 'required|unique:manufacturers'
+           'name' => 'required'
         ]);
         Manufacturer::create($request->all());
         session()->flash('success', 'New manufacturer has been added: ' . $request->name);
@@ -78,7 +78,7 @@ class ManufacturerController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name' => 'required|unique:manufacturers'
+            'name' => 'required'
         ]);
         $manufacturer = Manufacturer::findOrFail($id);
         $manufacturer->update($request->all());

@@ -34,7 +34,6 @@
                     </ul>
                 </li>
             </ul>
-
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{route('basket')}}">Basket</a></li>
                 @guest
