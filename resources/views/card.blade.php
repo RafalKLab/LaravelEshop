@@ -7,8 +7,8 @@
             <p>{{ $product->price }} Eur</p>
             <p>
             <form action="{{route('basketAdd', $product)}}" method="POST">
-                <button type="submit" class="btn btn-primary" role="button">Add to basket</button>
-                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="btn btn-default" role="button">View</a>
+                <button type="submit" class="btn btn-primary" role="button">@lang('main.toBasket')</button>
+                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="btn btn-default" role="button">@lang('main.view')</a>
                 @csrf
             </form>
             </p>

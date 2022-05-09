@@ -18,27 +18,19 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+            <a class="navbar-brand" href="{{ route('home') }}">@lang('main.home')</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('home') }}">All products</a></li>
-                <li class="active"><a href="{{ route('categories') }}">Categories</a></li>
-                <li><a href="">en</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">$<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="">₽</a></li>
-                        <li><a href="">$</a></li>
-                        <li><a href="">€</a></li>
-                    </ul>
-                </li>
+                <li class="active"><a href="{{ route('home') }}">@lang('main.all_products')</a></li>
+                <li class="active"><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
+                <li><a href="{{route('locale', __('main.set_lang'))}}">@lang('main.set_lang')</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{route('basket')}}">Basket</a></li>
+                <li><a href="{{route('basket')}}">@lang('main.basket')</a></li>
                 @guest
-                    <li><a href="{{route('login')}}">Log in</a></li>
-                    <li><a href="{{route('register')}}">Register</a></li>
+                    <li><a href="{{route('login')}}">@lang('main.log_in')</a></li>
+                    <li><a href="{{route('register')}}">@lang('main.register')</a></li>
                 @endguest
                 @auth
                     <li><a href="{{route('adminHome')}}">Admin panel</a></li>

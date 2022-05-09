@@ -6,10 +6,10 @@
             <table class="table table-striped">
                 <thed>
                     <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Value</th>
+                        <th>@lang('main.name')</th>
+                        <th>@lang('main.quantity')</th>
+                        <th>@lang('main.price')</th>
+                        <th>@lang('main.value')</th>
                     </tr>
                 </thed>
                 <tbody>
@@ -40,14 +40,14 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="3">Total price:</td>
+                    <td colspan="3">@lang('main.tot_price'):</td>
                     <td>{{ $order->getFullPrice() }} Eur.</td>
                 </tr>
                 </tbody>
             </table>
             <br>
             <div class="btn-group pull-right" role="group">
-                <a type="button" class="btn btn-success" href="{{route('basketPlace')}}">Confirm Order</a>
+                <a type="button" class="btn btn-success" href="{{route('basketPlace')}}">@lang('main.confirm')</a>
             </div>
         </div>
 @endsection

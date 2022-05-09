@@ -30,27 +30,33 @@ Route::group([
     Route::resource('manufacturers',App\Http\Controllers\Admin\ManufacturerController::class);
 });
 
+//localization
+Route::get('/locale/{locale}', [App\Http\Controllers\MainController::class, 'changeLocale'])->name('locale');
+Route::middleware(['set_locale'])->group(function (){
+
 //search
-Route::get('/search', [App\Http\Controllers\MainController::class, 'search'])->name('search');
+    Route::get('/search', [App\Http\Controllers\MainController::class, 'search'])->name('search');
 
 //auth
-Route::get('/register', [App\Http\Controllers\AuthController::class, 'getRegister'])->middleware('guest')->name('register');
-Route::post('/register', [App\Http\Controllers\AuthController::class, 'postRegister'])->middleware('guest');
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'getLogin'])->middleware('guest')->name('login');
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'postLogin'])->middleware('guest');
-Route::get('/logout', [App\Http\Controllers\AuthController::class, 'getLogout'])->name('logout');
+    Route::get('/register', [App\Http\Controllers\AuthController::class, 'getRegister'])->middleware('guest')->name('register');
+    Route::post('/register', [App\Http\Controllers\AuthController::class, 'postRegister'])->middleware('guest');
+    Route::get('/login', [App\Http\Controllers\AuthController::class, 'getLogin'])->middleware('guest')->name('login');
+    Route::post('/login', [App\Http\Controllers\AuthController::class, 'postLogin'])->middleware('guest');
+    Route::get('/logout', [App\Http\Controllers\AuthController::class, 'getLogout'])->name('logout');
 
 //basket
-Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('basket');
-Route::get('/basket/place', [App\Http\Controllers\BasketController::class, 'basketPlace'])->name('basketPlace');
-Route::post('/basket/confirm', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basketConfirm');
-Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basketAdd');
-Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'basketRemove'])->name('basketRemove');
+    Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('basket');
+    Route::get('/basket/place', [App\Http\Controllers\BasketController::class, 'basketPlace'])->name('basketPlace');
+    Route::post('/basket/confirm', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basketConfirm');
+    Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basketAdd');
+    Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'basketRemove'])->name('basketRemove');
 
 //categories
-Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('home');
-Route::get('/categories', [App\Http\Controllers\MainController::class, 'categories'])->name('categories');
-Route::get('/{category}', [App\Http\Controllers\MainController::class, 'category'])->name('category');
-Route::get('/{category}/{name?}', [App\Http\Controllers\MainController::class, 'product'])->name('product');
+    Route::get('/categories', [App\Http\Controllers\MainController::class, 'categories'])->name('categories');
+    Route::get('/{category}', [App\Http\Controllers\MainController::class, 'category'])->name('category');
+    Route::get('/{category}/{name?}', [App\Http\Controllers\MainController::class, 'product'])->name('product');
+    Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('home');
+});
+
 
 

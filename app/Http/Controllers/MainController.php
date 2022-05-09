@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
@@ -54,6 +55,11 @@ class MainController extends Controller
         $categories = Category::get();
         $manufacturers = Manufacturer::get();
         return view('index', compact('products', 'categories', 'manufacturers'));
+    }
+    public function changeLocale($locale){
+        session(['locale' => $locale]);
+        App::setLocale($locale);
+        return redirect()->back();
     }
 
 }
