@@ -109,7 +109,7 @@
                 </div>
                     <br>
                 <div class="row">
-                     <label for="price" class="col-sm-2 col-form-label">Description: </label>
+                     <label for="description" class="col-sm-2 col-form-label">Description: </label>
                         <div class="col-sm-6">
                             <textarea name="description" id="description" cols="72" rows="7">@isset($product){{ $product->description }}@endisset</textarea><br>
                             @if($errors->has('description'))
@@ -119,6 +119,18 @@
                             @endif
                      </div>
                 </div>
+                <br>
+                    <div class="row">
+                        <label for="lt_description" class="col-sm-2 col-form-label">Lithuanian description: </label>
+                        <div class="col-sm-6">
+                            <textarea name="lt_description" id="lt_description" cols="72" rows="7">@isset($product){{ $product->lt_description }}@endisset</textarea><br>
+                            @if($errors->has('lt_description'))
+                                <span class="text-danger">
+                            {{$errors->first('lt_description')}}
+                        </span>
+                            @endif
+                        </div>
+                    </div>
                 <br>
                 <div class="row">
                     <label for="image" class="col-sm-2 col-form-label">Image</label>

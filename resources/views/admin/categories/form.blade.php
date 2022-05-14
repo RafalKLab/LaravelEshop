@@ -50,6 +50,19 @@
                        @endif
                    </div>
                </div>
+                   <br>
+                   <div class="row">
+                       <label for="lt_name" class="col-sm-2 col-form-label">Lithuanian name: </label>
+                       <div class="col-sm-6">
+                           <input type="text" class="form-control" name="lt_name" id="name"
+                                  value="@isset($category){{ $category->lt_name }}@endisset">
+                           @if($errors->has('lt_name'))
+                               <span class="text-danger">
+                            {{$errors->first('lt_name')}}
+                        </span>
+                           @endif
+                       </div>
+                   </div>
                <br>
                <div class="row">
                    <label for="description" class="col-sm-2 col-form-label">Description: </label>

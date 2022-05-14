@@ -22,6 +22,10 @@
                     <td>{{$category->name}}</td>
                 </tr>
                 <tr>
+                    <td>Lithuanian name</td>
+                    <td>{{$category->lt_name}}</td>
+                </tr>
+                <tr>
                     <td>Description</td>
                     <td>{{$category->description}}</td>
                 </tr>

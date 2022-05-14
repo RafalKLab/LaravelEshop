@@ -46,7 +46,8 @@ class ProductsController extends Controller
             'code' => 'required|max:255',
             'price' => 'required|gt:0',
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
+            'lt_description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $path = $request->file('image')->store('products');
@@ -93,7 +94,8 @@ class ProductsController extends Controller
             'code' => 'required|max:255',
             'price' => 'required|gt:0',
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
+            'lt_description' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         if($request->file('image')){

@@ -41,6 +41,7 @@ class CategoriesController extends Controller
         $this->validate($request, [
             'code' => 'required|max:255',
             'name' => 'required|max:255',
+            'lt_name' => 'required|max:255',
             'description' => 'required|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -85,7 +86,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'code' => 'required|max:255',
-            'name' => 'required|max:255',
+            'lt_name' => 'required|max:255',
             'description' => 'required|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);

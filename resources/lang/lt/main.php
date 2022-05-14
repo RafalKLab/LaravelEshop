@@ -3,6 +3,7 @@ return [
     'home' => 'Pagrindinis',
     'all_products' => 'Visos prekės',
     'categories' => 'Kategorijos',
+    'category' => 'Kategorija',
     'set_lang' => 'en',
     'basket' => 'Krepšėlis',
     'log_in' => 'Prisijungti',
@@ -22,4 +23,10 @@ return [
     'value' => 'kaina',
     'tot_price' => 'Iš viso',
     'confirm' => 'Patvirtinti',
+    'all' => 'Visi',
+    'confirm_instruction' => 'Parašykite savo vardą, el. pašto adresą ir telefono numerį',
+    'u_name' => 'Vardas',
+    'u_email' => 'el. paštas',
+    'u_phone' => 'telefono numeris',
+    'about_product' => 'Apie prekę',
 ];

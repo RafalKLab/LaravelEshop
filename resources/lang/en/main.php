@@ -3,6 +3,7 @@ return [
     'home' => 'Home',
     'all_products' => 'All products',
     'categories' => 'Categories',
+    'category' => 'Category',
     'set_lang' => 'lt',
     'basket' => 'Basket',
     'log_in' => 'Log in',
@@ -22,4 +23,10 @@ return [
     'value' => 'Value',
     'tot_price' => 'Total Price',
     'confirm' => 'Confirm order',
+    'all' => 'All',
+    'confirm_instruction' => 'Write your name, email and phone number',
+    'u_name' => 'Name',
+    'u_email' => 'Email',
+    'u_phone' => 'Phone',
+    'about_product' => 'About product',
     ];

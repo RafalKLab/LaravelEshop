@@ -22,9 +22,15 @@
                     <div class="col-sm-6 col-md-4">
                         <label for="filter_category">@lang('main.cat_fil')
                         <select class="form-select" aria-label="Select category" name="filter_category" id="filter_category">
-                            <option value="">All</option>
+                            <option value="">@lang('main.all')</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}" {{request()->filter_category == $category->id ? "selected" : ''}}>{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{request()->filter_category == $category->id ? "selected" : ''}}>
+                                    @if(session()->get('locale') == 'lt')
+                                        {{ $category->lt_name }}
+                                    @else
+                                        {{ $category->name }}
+                                    @endif
+                                </option>
                             @endforeach
                         </select>
                         </label>
@@ -32,7 +38,7 @@
                     <div class="col-sm-6 col-md-4">
                         <label for="filter_category">@lang('main.man_fil')
                             <select class="form-select" aria-label="Select manufacturer" name="filter_manufacturer" id="filter_manufacturery">
-                                <option value="">All</option>
+                                <option value="">@lang('main.all')</option>
                                 @foreach($manufacturers as $manufacturer)
                                     <option value="{{$manufacturer->id}}" {{request()->filter_manufacturer == $manufacturer->id ? "selected" : ''}}>{{$manufacturer->name}}</option>
                                 @endforeach

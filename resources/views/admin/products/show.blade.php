@@ -26,6 +26,11 @@
                 <td>{{$product->description}}</td>
             </tr>
             <tr>
+                <td>Lithuanian description</td>
+                <td>{{$product->lt_description}}</td>
+            </tr>
+
+            <tr>
                 <td>Price</td>
                 <td>{{$product->price}}</td>
             </tr>
