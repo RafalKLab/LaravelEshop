@@ -6,7 +6,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <img src="{{ Storage::url($product->image) }}" alt="" width="400px">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="" width="400px">
                         </div>
                     </div>
                 </div>

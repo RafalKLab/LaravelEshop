@@ -29,4 +29,9 @@ return [
     'u_email' => 'Email',
     'u_phone' => 'Phone',
     'about_product' => 'About product',
+    'empty_cart' => 'Your cart is empty!',
+    'product_removed' => ':name have been removed!',
+    'product_added' => ':name have been added to basket!',
+    'order_taken' => 'Your order have been taken. Orderd id: :number',
+    'no_products_with_filters' => 'There is no products for such filters!',
     ];

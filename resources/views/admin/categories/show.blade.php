@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td>Image</td>
-                    <td><img src="{{ Storage::url($category->image) }}" height="240px"></td>
+                    <td><img src="{{ asset('storage/' . $category->image) }}" height="240px"></td>
                 </tr>
                 <tr>
                     <td>Products count:</td>

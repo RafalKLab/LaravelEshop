@@ -6,12 +6,13 @@
                     <div class="col-md-3">
                         <div class="panel">
                             <a href="{{ route('category', $category->code)}}">
-                                <img src="{{ Storage::url($category->image) }}" height="150px" width="150px">
-                                <h2>{{ $category->name }}</h2>
+                                <img src="{{ asset('storage/' . $category->image) }}" height="150px" width="150px">
+                                @if(session()->get('locale') == 'lt')
+                                    <h2>{{ $category->lt_name }}</h2>
+                                @else
+                                    <h2>{{ $category->name }}</h2>
+                                @endif
                             </a>
-                            <p>
-                                {{ $category->description }}
-                            </p>
                     </div>
                 </div>
             @endforeach

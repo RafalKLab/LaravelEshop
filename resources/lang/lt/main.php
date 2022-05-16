@@ -29,4 +29,9 @@ return [
     'u_email' => 'el. paštas',
     'u_phone' => 'telefono numeris',
     'about_product' => 'Apie prekę',
+    'empty_cart' => 'Jūsų krepšelis tuščias!',
+    'product_removed' => ':name buvo pašalintas iš krepšelio!',
+    'product_added' => ':name buvo įtrauktas į krepšelį!',
+    'order_taken' => 'Jūsų užsakymas priimtas. Užsakymo numeris: :number',
+    'no_products_with_filters' => 'Prekių nerasta!',
 ];

@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>Image</td>
-                <td><img src="{{ Storage::url($product->image) }}" alt="image" height="240px"></td>
+                <td><img src="{{ asset('storage/' . $product->image) }}" alt="image" height="240px"></td>
             </tr>
             </tbody>
         </table>

@@ -35,8 +35,7 @@ class BasketController extends Controller
             $order->products()->attach($productId);
         }
         $product = Product::find($productId);
-        session()->flash('success', $product->name . ' have been added!');
-        return redirect()->route('basket');
+        return redirect()->route('basket')->with('success', __('main.product_added', ['name' => $product->name]));
     }
 
     public function basketRemove($productId){
@@ -55,8 +54,7 @@ class BasketController extends Controller
             }
         }
         $product = Product::find($productId);
-        session()->flash('warning', $product->name . ' have been removed!');
-        return redirect()->route('basket');
+        return redirect()->route('basket')->with('warning', __('main.product_removed', ['name' => $product->name]));
     }
 
     public function basketPlace(){
@@ -66,8 +64,7 @@ class BasketController extends Controller
         }
         $order = Order::find($orderId);
         if(!count($order->products)){
-            session()->flash('warning', 'Your cart is empty!');
-            return redirect()->route('basket');
+            return redirect()->route('basket')->with('warning', __('main.empty_cart'));
         }
         return view('order', compact('order'));
     }
@@ -85,7 +82,7 @@ class BasketController extends Controller
         $order = Order::find($orderId);
         $success = $order->saveOrder($request->name, $request->phone, $request->email);
         if($success){
-            session()->flash('success', 'Your order have been taken. Orderd id:' . $orderId);
+            session()->flash('success', __('main.order_taken', ['number' => $orderId]));
             $order = Order::create();
             session(['orderId' => $order->id]);
         }else{

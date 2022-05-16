@@ -33,14 +33,17 @@ class MainController extends Controller
     }
     public function categories(){
         $categories = Category::get();
+
         return view('categories',compact('categories'));
     }
     public function category($category){
         $categoryObject = Category::where('code', $category)->first();
+
         return view('category', compact('categoryObject'));
     }
     public function product($category, $name = null){
         $product = Product::where('code', $name)->first();
+
         return view('product', compact('product'));
     }
     public function search(Request $request){
@@ -54,12 +57,14 @@ class MainController extends Controller
             ->paginate(6);
         $categories = Category::get();
         $manufacturers = Manufacturer::get();
+
         return view('index', compact('products', 'categories', 'manufacturers'));
     }
+
     public function changeLocale($locale){
         session(['locale' => $locale]);
         App::setLocale($locale);
+
         return redirect()->back();
     }
-
 }

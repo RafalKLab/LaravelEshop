@@ -55,7 +55,7 @@
             <div class="row">
                 @if(!count($products))
                     <div class="alert alert-info" role="alert">
-                        There is no products for such filters!
+                        @lang('main.no_products_with_filters')
                     </div>
                 @endif
                 @foreach($products as $product )
