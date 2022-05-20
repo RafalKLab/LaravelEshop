@@ -43,7 +43,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'code' => 'required|max:255',
+            'code' => 'required|max:255|unique:products',
             'price' => 'required|gt:0',
             'name' => 'required|max:255',
             'description' => 'required',
@@ -91,7 +91,6 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request, [
-            'code' => 'required|max:255',
             'price' => 'required|gt:0',
             'name' => 'required|max:255',
             'description' => 'required',
