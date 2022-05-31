@@ -1,5 +1,5 @@
 
-# Software architecture project - Electornic device e-shop
+# Software architecture project - Electronic device e-shop
 
 This system is developed using the PHP language framework Laravel (8.83.6). The MySql DB engine is used for data storage.
 
